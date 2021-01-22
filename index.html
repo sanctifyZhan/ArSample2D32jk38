@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>GeoAR.js demo</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="photo-mode.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- These HTML elements are used to show an UI laid over the scene -->
+    <div id="photoModeContainer" style="display: none">
+        <img id="photoModeImage">
+        <div id="flash"></div>
+        <div id="shutterButton"></div>
+        <div id="closeButton"></div>
+    </div>
+
+    <a-scene photo-mode
+             xrextras-almost-there
+             xrextras-loading
+             xrextras-runtime-error
+             xrextras-tap-recenter
+             xrweb>
+
+        <!-- We can define assets here to be loaded when A-Frame initializes -->
+        <a-assets>
+            <!-- Credit to Poly by Google for the model: https://poly.google.com/view/fojR5i3h_nh -->
+            <a-asset-item id="flyingSaucerModel" src="flying-saucer.glb"></a-asset-item>
+        </a-assets>
+
+        <a-camera position="0 4 10"></a-camera>
+
+        <a-entity light="type: directional;
+               intensity: 0.8;"
+                  position="1 4.3 2.5">
+        </a-entity>
+
+        <a-light type="ambient" intensity="1"></a-light>
+
+        <a-entity gltf-model="#flyingSaucerModel" scale="300 300 300" position="0 7 0"></a-entity>
+
+        <a-cylinder geometry="segments-radial: 8"
+                    material="transparent:true; opacity: 0.5; color: #33ff33"
+                    open-ended="true"
+                    height="7"
+                    radius="1.5"
+                    position="0 3.5 0"></a-cylinder>
+
+    </a-scene>
+</body>
+</html>
