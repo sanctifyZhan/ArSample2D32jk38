@@ -20,36 +20,17 @@
         <div id="closeButton"></div>
     </div>
 
-    <a-scene photo-mode
-             xrextras-almost-there
-             xrextras-loading
-             xrextras-runtime-error
-             xrextras-tap-recenter
-             xrweb>
+    <a-scene>
 
         <!-- We can define assets here to be loaded when A-Frame initializes -->
         <a-assets>
             <!-- Credit to Poly by Google for the model: https://poly.google.com/view/fojR5i3h_nh -->
-            <a-asset-item id="flyingSaucerModel" src="flying-saucer.glb"></a-asset-item>
+            <a-asset-item id="flyingSaucerModel" src="camera.png"></a-asset-item>
         </a-assets>
 
         <a-camera position="0 4 10"></a-camera>
 
-        <a-entity light="type: directional;
-               intensity: 0.8;"
-                  position="1 4.3 2.5">
-        </a-entity>
 
-        <a-light type="ambient" intensity="1"></a-light>
-
-        <a-entity gltf-model="#flyingSaucerModel" scale="300 300 300" position="0 7 0"></a-entity>
-
-        <a-cylinder geometry="segments-radial: 8"
-                    material="transparent:true; opacity: 0.5; color: #33ff33"
-                    open-ended="true"
-                    height="7"
-                    radius="1.5"
-                    position="0 3.5 0"></a-cylinder>
 
     </a-scene>
 </body>
